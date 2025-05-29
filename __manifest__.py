@@ -1,10 +1,10 @@
 # custom_project_addon/__manifest__.py
 {
-    'name': 'ik45',
+    'name': 'Custom Project Management',
     'version': '1.0',
     'category': 'Project',
     'summary': 'Lock/unlock tasks by milestone, propagate date changes, send notifications',
-    'author': 'Your Name',
+    'author': 'Amulya Sharma',
     'depends': [
         'project',
         'mail',

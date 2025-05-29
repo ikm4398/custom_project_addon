@@ -1,8 +1,12 @@
 from odoo import api
 
-def send_task_deadline_extension_email(env, task):
+def send_task_deadline_extension_email(env, task, task_type='task'):
     """
-    Sends email notification to task assignees and the project manager when the task's deadline is extended.
+    Sends email notification to task assignees and the project manager when the task's deadline is modified.
+    Args:
+        env: Odoo environment
+        task: The task record whose deadline was changed
+        task_type: String indicating if it's an 'in-progress' or 'canceled' task
     """
     if not task.user_ids and not task.project_id.user_id:
         return
@@ -26,7 +30,7 @@ def send_task_deadline_extension_email(env, task):
     # Get the partner_ids of all recipients
     recipient_partners = recipients.mapped('partner_id')
 
-    # Send the email
-    template.send_mail(task.id, force_send=True, email_values={
+    # Send the email with context to indicate task type
+    template.with_context(task_type=task_type).send_mail(task.id, force_send=True, email_values={
         'recipient_ids': [(6, 0, recipient_partners.ids)],
     })

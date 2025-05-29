@@ -9,10 +9,11 @@
             <field name="body_html" type="html">
                 <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; color: #444; line-height: 1.5; padding: 10px;">
                     <p style="margin: 0 0 16px 0;">
-                        Dear Team,
+                        Dear User,
                     </p>
                     <p style="margin: 0 0 16px 0;">
-                        The deadline for the task <strong><t t-out="object.name or 'Unnamed Task'"/></strong> in project 
+                        The deadline for the <t t-out="ctx.get('task_type', 'task')"/> 
+                        <strong><t t-out="object.name or 'Unnamed Task'"/></strong> in project 
                         <strong><t t-out="object.project_id.name or 'N/A'"/></strong> has been extended.
                     </p>
                     <p style="margin: 0 0 16px 0;">
