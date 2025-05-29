@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Odoo-specific
+*.log
+*.tmp
+
+# If you use pipenv or venv
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Editor / IDE configs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# If using Docker, you may want to exclude volumes or auto-generated files
+docker-compose.override.yml
+*.pid
+*.sock
